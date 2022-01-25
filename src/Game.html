@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span id="%24maxtag_84NN76BRwp282582EAf8tZ"><span id="%24tag2con_84NN76BRwp282582EAf8tZ"><span id="%24con2tag_84NN76BRwp282582EAf8tZ"></span></span></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Functional Programming - Super Functor Factory Project</span><span>
+</span><span id="line-3"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- Copyright (c) 2022 Michael B. Gale (michael@fpclass.online)</span><span>
+</span><span id="line-5"></span><span class="hs-comment">--</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- This source code is subject to the terms and conditions found in the LICENSE</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- file in the root directory of this source tree.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><span id="line-9"></span><span>
+</span><span id="line-10"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Game</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-11"></span><span>
+</span><span id="line-12"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><span id="line-13"></span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.List</span></span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Function</span></span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- | This type enumerates the different colours of lambdas that arrive at</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- the Functor Factory.</span><span>
+</span><span id="line-21"></span><span class="hs-keyword">data</span><span> </span><span id="Colour"><span class="annot"><a href="Game.html#Colour"><span class="hs-identifier hs-var">Colour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Purple"><span class="annot"><a href="Game.html#Purple"><span class="hs-identifier hs-var">Purple</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Red"><span class="annot"><a href="Game.html#Red"><span class="hs-identifier hs-var">Red</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Green"><span class="annot"><a href="Game.html#Green"><span class="hs-identifier hs-var">Green</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Blue"><span class="annot"><a href="Game.html#Blue"><span class="hs-identifier hs-var">Blue</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Yellow"><span class="annot"><a href="Game.html#Yellow"><span class="hs-identifier hs-var">Yellow</span></a></span></span><span>
+</span><span id="line-22"></span><span>    </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679033642"><span id="local-6989586621679033644"><span class="annot"><span class="annottext">Colour -&gt; Colour -&gt; Bool
+(Colour -&gt; Colour -&gt; Bool)
+-&gt; (Colour -&gt; Colour -&gt; Bool) -&gt; Eq Colour
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Colour -&gt; Colour -&gt; Bool
+$c/= :: Colour -&gt; Colour -&gt; Bool
+== :: Colour -&gt; Colour -&gt; Bool
+$c== :: Colour -&gt; Colour -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033635"><span id="local-6989586621679033637"><span id="local-6989586621679033639"><span class="annot"><span class="annottext">Int -&gt; Colour -&gt; ShowS
+[Colour] -&gt; ShowS
+Colour -&gt; String
+(Int -&gt; Colour -&gt; ShowS)
+-&gt; (Colour -&gt; String) -&gt; ([Colour] -&gt; ShowS) -&gt; Show Colour
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Colour] -&gt; ShowS
+$cshowList :: [Colour] -&gt; ShowS
+show :: Colour -&gt; String
+$cshow :: Colour -&gt; String
+showsPrec :: Int -&gt; Colour -&gt; ShowS
+$cshowsPrec :: Int -&gt; Colour -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033618"><span id="local-6989586621679033620"><span id="local-6989586621679033622"><span id="local-6989586621679033624"><span id="local-6989586621679033626"><span id="local-6989586621679033628"><span id="local-6989586621679033630"><span id="local-6989586621679033632"><span class="annot"><span class="annottext">Int -&gt; Colour
+Colour -&gt; Int
+Colour -&gt; [Colour]
+Colour -&gt; Colour
+Colour -&gt; Colour -&gt; [Colour]
+Colour -&gt; Colour -&gt; Colour -&gt; [Colour]
+(Colour -&gt; Colour)
+-&gt; (Colour -&gt; Colour)
+-&gt; (Int -&gt; Colour)
+-&gt; (Colour -&gt; Int)
+-&gt; (Colour -&gt; [Colour])
+-&gt; (Colour -&gt; Colour -&gt; [Colour])
+-&gt; (Colour -&gt; Colour -&gt; [Colour])
+-&gt; (Colour -&gt; Colour -&gt; Colour -&gt; [Colour])
+-&gt; Enum Colour
+forall a.
+(a -&gt; a)
+-&gt; (a -&gt; a)
+-&gt; (Int -&gt; a)
+-&gt; (a -&gt; Int)
+-&gt; (a -&gt; [a])
+-&gt; (a -&gt; a -&gt; [a])
+-&gt; (a -&gt; a -&gt; [a])
+-&gt; (a -&gt; a -&gt; a -&gt; [a])
+-&gt; Enum a
+enumFromThenTo :: Colour -&gt; Colour -&gt; Colour -&gt; [Colour]
+$cenumFromThenTo :: Colour -&gt; Colour -&gt; Colour -&gt; [Colour]
+enumFromTo :: Colour -&gt; Colour -&gt; [Colour]
+$cenumFromTo :: Colour -&gt; Colour -&gt; [Colour]
+enumFromThen :: Colour -&gt; Colour -&gt; [Colour]
+$cenumFromThen :: Colour -&gt; Colour -&gt; [Colour]
+enumFrom :: Colour -&gt; [Colour]
+$cenumFrom :: Colour -&gt; [Colour]
+fromEnum :: Colour -&gt; Int
+$cfromEnum :: Colour -&gt; Int
+toEnum :: Int -&gt; Colour
+$ctoEnum :: Int -&gt; Colour
+pred :: Colour -&gt; Colour
+$cpred :: Colour -&gt; Colour
+succ :: Colour -&gt; Colour
+$csucc :: Colour -&gt; Colour
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Enum</span></span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033613"><span id="local-6989586621679033615"><span class="annot"><span class="annottext">Colour
+Colour -&gt; Colour -&gt; Bounded Colour
+forall a. a -&gt; a -&gt; Bounded a
+maxBound :: Colour
+$cmaxBound :: Colour
+minBound :: Colour
+$cminBound :: Colour
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Bounded</span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-23"></span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- | Cells are either empty or contain a lambda of some colour.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">data</span><span> </span><span id="Cell"><span class="annot"><a href="Game.html#Cell"><span class="hs-identifier hs-var">Cell</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Empty"><span class="annot"><a href="Game.html#Empty"><span class="hs-identifier hs-var">Empty</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Lambda"><span class="annot"><a href="Game.html#Lambda"><span class="hs-identifier hs-var">Lambda</span></a></span></span><span> </span><span class="annot"><a href="Game.html#Colour"><span class="hs-identifier hs-type">Colour</span></a></span><span>
+</span><span id="line-26"></span><span>    </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679033606"><span id="local-6989586621679033608"><span class="annot"><span class="annottext">Cell -&gt; Cell -&gt; Bool
+(Cell -&gt; Cell -&gt; Bool) -&gt; (Cell -&gt; Cell -&gt; Bool) -&gt; Eq Cell
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Cell -&gt; Cell -&gt; Bool
+$c/= :: Cell -&gt; Cell -&gt; Bool
+== :: Cell -&gt; Cell -&gt; Bool
+$c== :: Cell -&gt; Cell -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033600"><span id="local-6989586621679033602"><span id="local-6989586621679033604"><span class="annot"><span class="annottext">Int -&gt; Cell -&gt; ShowS
+[Cell] -&gt; ShowS
+Cell -&gt; String
+(Int -&gt; Cell -&gt; ShowS)
+-&gt; (Cell -&gt; String) -&gt; ([Cell] -&gt; ShowS) -&gt; Show Cell
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Cell] -&gt; ShowS
+$cshowList :: [Cell] -&gt; ShowS
+show :: Cell -&gt; String
+$cshow :: Cell -&gt; String
+showsPrec :: Int -&gt; Cell -&gt; ShowS
+$cshowsPrec :: Int -&gt; Cell -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The conveyor belt is represented as a list of lists of cells.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">type</span><span> </span><span id="Conveyor"><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-var">Conveyor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">[</span><span class="annot"><a href="Game.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">]</span><span class="hs-special">]</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Represents a position on the conveyor belt where the first component is</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- the coordinate on the x-axis and the second component is the coordinate</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- on the y-axis.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">type</span><span> </span><span id="Pos"><span class="annot"><a href="Game.html#Pos"><span class="hs-identifier hs-var">Pos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | `conveyorWidth` is the width of the conveyor belt.</span><span>
+</span><span id="line-37"></span><span class="annot"><a href="Game.html#conveyorWidth"><span class="hs-identifier hs-type">conveyorWidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span>
+</span><span id="line-38"></span><span id="conveyorWidth"><span class="annot"><span class="annottext">conveyorWidth :: Int
+</span><a href="Game.html#conveyorWidth"><span class="hs-identifier hs-var hs-var">conveyorWidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">10</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- | `conveyorHeight` is the height of the conveyor belt.</span><span>
+</span><span id="line-41"></span><span class="annot"><a href="Game.html#conveyorHeight"><span class="hs-identifier hs-type">conveyorHeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span>
+</span><span id="line-42"></span><span id="conveyorHeight"><span class="annot"><span class="annottext">conveyorHeight :: Int
+</span><a href="Game.html#conveyorHeight"><span class="hs-identifier hs-var hs-var">conveyorHeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">15</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- | `lambdaLimit` is the maximum number of lambdas that will arrive at the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- factory after the initial delivery.</span><span>
+</span><span id="line-46"></span><span class="annot"><a href="Game.html#lambdaLimit"><span class="hs-identifier hs-type">lambdaLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span>
+</span><span id="line-47"></span><span id="lambdaLimit"><span class="annot"><span class="annottext">lambdaLimit :: Int
+</span><a href="Game.html#lambdaLimit"><span class="hs-identifier hs-var hs-var">lambdaLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">100</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | `profit` @positions@ calculates the profit for @positions@-many lambdas.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Game.html#profit"><span class="hs-identifier hs-type">profit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Game.html#Pos"><span class="hs-identifier hs-type">Pos</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span>
+</span><span id="line-53"></span><span id="profit"><span class="annot"><span class="annottext">profit :: [Pos] -&gt; Int
+</span><a href="Game.html#profit"><span class="hs-identifier hs-var hs-var">profit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Pos] -&gt; Int
+forall a. HasCallStack =&gt; a
+</span><span class="hs-identifier hs-var">undefined</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | `isOutsideBounds` @pos@ determines whether @pos@ is outside the boundaries</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- of the conveyor belt and evaluates to `True` if that is the case or `False`</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- otherwise.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Game.html#isOutsideBounds"><span class="hs-identifier hs-type">isOutsideBounds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Game.html#Pos"><span class="hs-identifier hs-type">Pos</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
+</span><span id="line-59"></span><span id="isOutsideBounds"><span class="annot"><span class="annottext">isOutsideBounds :: Pos -&gt; Bool
+</span><a href="Game.html#isOutsideBounds"><span class="hs-identifier hs-var hs-var">isOutsideBounds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Pos -&gt; Bool
+forall a. HasCallStack =&gt; a
+</span><span class="hs-identifier hs-var">undefined</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | `isEmpty` @conveyor@ determines whether all cells on the @conveyor@ are</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- empty or not.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Game.html#isEmpty"><span class="hs-identifier hs-type">isEmpty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
+</span><span id="line-64"></span><span id="isEmpty"><span class="annot"><span class="annottext">isEmpty :: Conveyor -&gt; Bool
+</span><a href="Game.html#isEmpty"><span class="hs-identifier hs-var hs-var">isEmpty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Conveyor -&gt; Bool
+forall a. HasCallStack =&gt; a
+</span><span class="hs-identifier hs-var">undefined</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | `makeEmpty` @conveyor positions@ should turn all cells indicated by the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- given @positions@ to empty cells.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Game.html#makeEmpty"><span class="hs-identifier hs-type">makeEmpty</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Game.html#Pos"><span class="hs-identifier hs-type">Pos</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span>
+</span><span id="line-69"></span><span id="makeEmpty"><span class="annot"><span class="annottext">makeEmpty :: Conveyor -&gt; [Pos] -&gt; Conveyor
+</span><a href="Game.html#makeEmpty"><span class="hs-identifier hs-var hs-var">makeEmpty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Conveyor -&gt; [Pos] -&gt; Conveyor
+forall a. HasCallStack =&gt; a
+</span><span class="hs-identifier hs-var">undefined</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | `advanceConveyor` @conveyor@ should move all lambdas on @conveyor@ as</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- close to the end of the conveyor as possible.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Game.html#advanceConveyor"><span class="hs-identifier hs-type">advanceConveyor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span>
+</span><span id="line-74"></span><span id="advanceConveyor"><span class="annot"><span class="annottext">advanceConveyor :: Conveyor -&gt; Conveyor
+</span><a href="Game.html#advanceConveyor"><span class="hs-identifier hs-var hs-var">advanceConveyor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Conveyor -&gt; Conveyor
+forall a. HasCallStack =&gt; a
+</span><span class="hs-identifier hs-var">undefined</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | `fill` @conveyor lambdas@ should add new @lambdas@ the @conveyor@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Game.html#fill"><span class="hs-identifier hs-type">fill</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Game.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span>
+</span><span id="line-78"></span><span id="fill"><span class="annot"><span class="annottext">fill :: Conveyor -&gt; [Cell] -&gt; Conveyor
+</span><a href="Game.html#fill"><span class="hs-identifier hs-var hs-var">fill</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Conveyor -&gt; [Cell] -&gt; Conveyor
+forall a. HasCallStack =&gt; a
+</span><span class="hs-identifier hs-var">undefined</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | `nextMove` @conveyor@ should determine the next cluster on @conveyor@ to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- process with the goal of maximising the Functor Factory's profit.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Game.html#nextMove"><span class="hs-identifier hs-type">nextMove</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Game.html#Conveyor"><span class="hs-identifier hs-type">Conveyor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Game.html#Pos"><span class="hs-identifier hs-type">Pos</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span id="nextMove"><span class="annot"><span class="annottext">nextMove :: Conveyor -&gt; [Pos]
+</span><a href="Game.html#nextMove"><span class="hs-identifier hs-var hs-var">nextMove</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Conveyor -&gt; [Pos]
+forall a. HasCallStack =&gt; a
+</span><span class="hs-identifier hs-var">undefined</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">--------------------------------------------------------------------------------</span></pre></body></html>
