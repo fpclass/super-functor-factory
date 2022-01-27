@@ -1,10 +1,14 @@
 resolver: lts-18.20
 
 build:
-    haddock-arguments:
-        haddock-args:
-            - "--odir=./docs"
+  haddock-arguments:
+    haddock-args:
+      - "--odir=./docs"
 
 extra-deps:
-    - git: https://github.com/mbg/tasty-hedgehog
-      commit: ceadcd78cf96ef2a0fb63d353aaa43f2e51b40a8
+  - git: https://github.com/mbg/tasty-hedgehog
+    commit: ceadcd78cf96ef2a0fb63d353aaa43f2e51b40a8
+
+flags:
+  mintty:
+    Win32-2-13-1: false
