@@ -19,7 +19,7 @@
 </span><span id="line-19"></span><span class="hs-comment">-- | This type enumerates the different colours of lambdas that arrive at</span><span>
 </span><span id="line-20"></span><span class="hs-comment">-- the Functor Factory.</span><span>
 </span><span id="line-21"></span><span class="hs-keyword">data</span><span> </span><span id="Colour"><span class="annot"><a href="Game.html#Colour"><span class="hs-identifier hs-var">Colour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Purple"><span class="annot"><a href="Game.html#Purple"><span class="hs-identifier hs-var">Purple</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Red"><span class="annot"><a href="Game.html#Red"><span class="hs-identifier hs-var">Red</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Green"><span class="annot"><a href="Game.html#Green"><span class="hs-identifier hs-var">Green</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Blue"><span class="annot"><a href="Game.html#Blue"><span class="hs-identifier hs-var">Blue</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Yellow"><span class="annot"><a href="Game.html#Yellow"><span class="hs-identifier hs-var">Yellow</span></a></span></span><span>
-</span><span id="line-22"></span><span>    </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679033642"><span id="local-6989586621679033644"><span class="annot"><span class="annottext">Colour -&gt; Colour -&gt; Bool
+</span><span id="line-22"></span><span>    </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679025135"><span id="local-6989586621679025137"><span class="annot"><span class="annottext">Colour -&gt; Colour -&gt; Bool
 (Colour -&gt; Colour -&gt; Bool)
 -&gt; (Colour -&gt; Colour -&gt; Bool) -&gt; Eq Colour
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -27,7 +27,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Colour -&gt; Colour -&gt; Bool
 == :: Colour -&gt; Colour -&gt; Bool
 $c== :: Colour -&gt; Colour -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033635"><span id="local-6989586621679033637"><span id="local-6989586621679033639"><span class="annot"><span class="annottext">Int -&gt; Colour -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679025128"><span id="local-6989586621679025130"><span id="local-6989586621679025132"><span class="annot"><span class="annottext">Int -&gt; Colour -&gt; ShowS
 [Colour] -&gt; ShowS
 Colour -&gt; String
 (Int -&gt; Colour -&gt; ShowS)
@@ -40,7 +40,7 @@ show :: Colour -&gt; String
 $cshow :: Colour -&gt; String
 showsPrec :: Int -&gt; Colour -&gt; ShowS
 $cshowsPrec :: Int -&gt; Colour -&gt; ShowS
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033618"><span id="local-6989586621679033620"><span id="local-6989586621679033622"><span id="local-6989586621679033624"><span id="local-6989586621679033626"><span id="local-6989586621679033628"><span id="local-6989586621679033630"><span id="local-6989586621679033632"><span class="annot"><span class="annottext">Int -&gt; Colour
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679025111"><span id="local-6989586621679025113"><span id="local-6989586621679025115"><span id="local-6989586621679025117"><span id="local-6989586621679025119"><span id="local-6989586621679025121"><span id="local-6989586621679025123"><span id="local-6989586621679025125"><span class="annot"><span class="annottext">Int -&gt; Colour
 Colour -&gt; Int
 Colour -&gt; [Colour]
 Colour -&gt; Colour
@@ -81,7 +81,7 @@ pred :: Colour -&gt; Colour
 $cpred :: Colour -&gt; Colour
 succ :: Colour -&gt; Colour
 $csucc :: Colour -&gt; Colour
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Enum</span></span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033613"><span id="local-6989586621679033615"><span class="annot"><span class="annottext">Colour
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Enum</span></span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679025106"><span id="local-6989586621679025108"><span class="annot"><span class="annottext">Colour
 Colour -&gt; Colour -&gt; Bounded Colour
 forall a. a -&gt; a -&gt; Bounded a
 maxBound :: Colour
@@ -92,14 +92,14 @@ $cminBound :: Colour
 </span><span id="line-23"></span><span>
 </span><span id="line-24"></span><span class="hs-comment">-- | Cells are either empty or contain a lambda of some colour.</span><span>
 </span><span id="line-25"></span><span class="hs-keyword">data</span><span> </span><span id="Cell"><span class="annot"><a href="Game.html#Cell"><span class="hs-identifier hs-var">Cell</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Empty"><span class="annot"><a href="Game.html#Empty"><span class="hs-identifier hs-var">Empty</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="Lambda"><span class="annot"><a href="Game.html#Lambda"><span class="hs-identifier hs-var">Lambda</span></a></span></span><span> </span><span class="annot"><a href="Game.html#Colour"><span class="hs-identifier hs-type">Colour</span></a></span><span>
-</span><span id="line-26"></span><span>    </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679033606"><span id="local-6989586621679033608"><span class="annot"><span class="annottext">Cell -&gt; Cell -&gt; Bool
+</span><span id="line-26"></span><span>    </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679025099"><span id="local-6989586621679025101"><span class="annot"><span class="annottext">Cell -&gt; Cell -&gt; Bool
 (Cell -&gt; Cell -&gt; Bool) -&gt; (Cell -&gt; Cell -&gt; Bool) -&gt; Eq Cell
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Cell -&gt; Cell -&gt; Bool
 $c/= :: Cell -&gt; Cell -&gt; Bool
 == :: Cell -&gt; Cell -&gt; Bool
 $c== :: Cell -&gt; Cell -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679033600"><span id="local-6989586621679033602"><span id="local-6989586621679033604"><span class="annot"><span class="annottext">Int -&gt; Cell -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679025093"><span id="local-6989586621679025095"><span id="local-6989586621679025097"><span class="annot"><span class="annottext">Int -&gt; Cell -&gt; ShowS
 [Cell] -&gt; ShowS
 Cell -&gt; String
 (Int -&gt; Cell -&gt; ShowS)
