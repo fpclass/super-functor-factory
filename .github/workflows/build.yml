@@ -59,7 +59,7 @@ jobs:
           stack --system-ghc --stack-yaml=${{ matrix.resolver }}.yaml --no-terminal build --fast --test --no-run-tests --haddock
 
       - name: Deploy documentation
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' }}
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           branch: haddock
